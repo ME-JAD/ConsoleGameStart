@@ -37,6 +37,8 @@ Création d'un Snake en ASCII.
 - il est architecturé en MVC.
 - il contient une classe GameWindow qui permet d'afficher une grille de jeu ainsi que la capture des touches du clavier.
 - vous pouvez totalement le modifier si vous le souhaitez.
+- voici le diagramme de classes de ce projet :
+- ![Diagramme de classes du projet de départ](Class Diagram - AsciiSnake.png)
 
 ## Travail à rendre :
 - un programme fonctionnel avec la dernière version dans la branche `master` du dépôt.
