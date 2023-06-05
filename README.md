@@ -3,6 +3,7 @@ Création d'un Snake en ASCII.
 
 ## Règle du jeu :
 - deux serpents se déplacent sur une grille.
+- leur déplacement est régulier et automatique.
 - un serpent peut se déplacer dans les 4 directions, cependant il ne peut que changer de direction à 90°. Il ne peut donc aller qu'à gauche ou à droite. Tout dépend de sa direction.
 - un serpent peut se déplacer partout sur la grille tant qu'il ne se mord pas la queue ou celle de l'autre serpent.
 - un serpent a une taille initiale de 3 cases.
