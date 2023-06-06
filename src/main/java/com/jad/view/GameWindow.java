@@ -15,14 +15,16 @@ class GameWindow extends JFrame {
     private static final int FRAME_WIDTH = 750;
     private static final int FRAME_HEIGHT = 806;
     private final JTextArea screen = new JTextArea("");
+    private final View view;
 
     /**
      * Instantiates a new Game window.
      *
      * @param title the title of the window
      */
-    public GameWindow(final String title) {
+    public GameWindow(final String title, final View view) {
         super(title);
+        this.view = view;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(GameWindow.FRAME_WIDTH, GameWindow.FRAME_HEIGHT);
         this.setResizable(false);
@@ -48,20 +50,19 @@ class GameWindow extends JFrame {
                 GameWindow.this.keyReleased(keyEvent);
             }
         });
-
         this.setVisible(true);
-    }
-
-    private void keyReleased(final KeyEvent keyEvent) {
-        // The code to manage the key released event
-    }
-
-    private void keyPressed(final KeyEvent keyEvent) {
-        // The code to manage the key pressed event
     }
 
     private void keyTyped(final KeyEvent keyEvent) {
         // The code to manage the key typed event
+    }
+
+    private void keyPressed(final KeyEvent keyEvent) {
+        this.view.transferAction(View.keyEventToAction(keyEvent));
+    }
+
+    private void keyReleased(final KeyEvent keyEvent) {
+        // The code to manage the key released event
     }
 
     /**

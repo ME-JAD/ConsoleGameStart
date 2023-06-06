@@ -7,10 +7,12 @@ import com.jad.IView;
 public class Controller implements IController {
     private final IView view;
     private final IModel model;
+    private final ActionPerformer actionPerformer;
 
     public Controller(final IView view, final IModel model) {
         this.view = view;
         this.model = model;
+        this.actionPerformer = new ActionPerformer(this.model);
         this.view.setController(this);
         this.view.setModel(this.model);
         this.model.setController(this);
@@ -18,6 +20,18 @@ public class Controller implements IController {
 
     @Override
     public void start() {
-        this.view.display();
+        this.gameLoop();
+    }
+
+    @Override
+    public void perform(final Action action) {
+        this.actionPerformer.perform(action);
+    }
+
+    private void gameLoop() {
+        for (; ; ) {
+            this.model.moveSnake();
+            this.view.display();
+        }
     }
 }
